@@ -1,0 +1,47 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>DWLR SYSTEM</title>
+ <link rel="stylesheet" href="${pageContext.request.contextPath}/ProjectCSS/login.css">
+</head>
+<body>
+<%String msg = (String)request.getAttribute("msg"); %>
+    <div class="container">
+        <div class="loginBox">
+            <form action="LoginCtrl" method="post"">
+                <div class="logo-container">
+                    <img src=${pageContext.request.contextPath}/Images/logo.png alt="Jal Watch Logo">
+                </div>
+
+                <div class="status">
+                    <ul>
+                        <li>SYSTEM ONLINE</li>
+                    </ul>
+                </div>
+<% if(msg!=null){
+	%>
+	<h3 style ="color:red;"><%=msg %></h3>
+	<%} %>
+                <label for="id">OPERATOR ID</label>
+                <input type="text" id="id" name="id" placeholder="Enter ID" required>
+
+                <label for="password">ACCESS KEY</label>
+                <input type="password" id="password" name="password" placeholder="XXXXXXXXX" required>
+
+                <div class="checkbox">
+                    <div>
+                        <input type="checkbox" id="session" name="session">
+                        <label for="session" class="sessionlabel">Keep Session Active</label>
+                    </div>
+                    <span class="frgetpaswd"><a href="#">Forgot Password?</a></span>
+                </div>
+
+                <button type="submit">Login</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
