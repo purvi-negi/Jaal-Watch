@@ -1,0 +1,38 @@
+name: Jaal-Watch CI Build
+
+on:
+  push:
+    branches: [ "main", "Develop" ] # Triggers on pushes to these branches
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    # Setup a temporary MySQL database for testing your JDBC connection
+    services:
+      mysql:
+        image: mysql:8.0
+        env:
+          MYSQL_ROOT_PASSWORD: root
+          MYSQL_DATABASE: dwlr_db
+        ports:
+          - 3306:3306
+
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Set up Java
+      uses: actions/setup-java@v4
+      with:
+        java-version: '17' # Adjust based on your version
+        distribution: 'temurin'
+        cache: maven
+
+    - name: Build and Test
+      run: mvn -B package --file pom.xml
+      env:
+        DB_URL: jdbc:mysql://localhost:3306/dwlr_db
+        DB_USER: root
+        DB_PASS: root
