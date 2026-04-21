@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Insert title here</title>
+    <style>
+        body {
+            background: #eef2f6;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            justify-content: center;
+            padding: 30px;
+        }
+
+        .table-container {
+            width: 95%;
+            max-width: 1100px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+            padding: 20px;
+        }
+
+        h2 {
+            text-align: center;
+            color: #2a81d2;
+            margin-bottom: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        thead {
+            background: linear-gradient(135deg, #2a81d2, #1fa2d6);
+            color: white;
+        }
+
+        th {
+            padding: 14px;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        td {
+            padding: 14px;
+            border-bottom: 1px solid #eee;
+            color: #333;
+        }
+
+        tbody tr {
+            transition: 0.2s;
+        }
+
+        tbody tr:hover {
+            background: #f4f8fc;
+            transform: scale(1.01);
+        }
+
+        /* Delete Button */
+        .delete-btn {
+            background: #dc3545;
+            color: white;
+            border: none;
+            padding: 7px 14px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 13px;
+            transition: 0.3s;
+        }
+
+        .delete-btn:hover {
+            background: #b02a37;
+        }
+
+        /* ===== STATUS COLORS ===== */
+
+        /* Battery */
+        .battery-high {
+            background: #e6f7ec;
+            color: #28a745;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-weight: 600;
+        }
+
+        .battery-medium {
+            background: #fff8e1;
+            color: #ff9800;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-weight: 600;
+        }
+
+        .battery-low {
+            background: #fdecea;
+            color: #dc3545;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-weight: 600;
+        }
+
+        /* Water Level */
+        .water-safe {
+            background: #e7f1ff;
+            color: #2a81d2;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-weight: 600;
+        }
+
+        .water-warning {
+            background: #fff3e0;
+            color: #ff9800;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-weight: 600;
+        }
+
+        .water-danger {
+            background: #fdecea;
+            color: #e63946;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-weight: 600;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+
+            th,
+            td {
+                padding: 10px;
+                font-size: 12px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="table-container">
+        <h2>DWLR Device Data</h2>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>DWLR ID</th>
+                    <th>Time Stamp</th>
+                    <th>Water Level</th>
+                    <th>Battery Level</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+
+
+
+            </tbody>
+        </table>
+    </div>
+
+</body>
+
+</html>
