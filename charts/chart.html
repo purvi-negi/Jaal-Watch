@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" a href="chart.css">
+    <title>Chart</title>
+</head>
+
+<body>
+    <div>
+        <canvas id="myChart"></canvas>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> 
+    <script>
+  const ctx = document.getElementById('myChart');
+
+  new Chart(ctx, {
+    type:'line',
+    data: {
+      labels: ['12:00', '4:00', '6:00', '3:00', '11:00', '17:00'],
+      datasets: [{
+        label: 'Real time Water Management System',
+        data: [12, 19, 3, 5, 2, 3],
+        borderWidth: 1,
+        backgroundColor: [
+      'rgba(255, 99, 132, 0.2)',
+      'rgba(255, 159, 64, 0.2)',
+      'rgba(255, 205, 86, 0.2)',
+      'rgba(75, 192, 192, 0.2)',
+      'rgba(54, 162, 235, 0.2)',
+      'rgba(153, 102, 255, 0.2)',
+      'rgba(201, 203, 207, 0.2)'
+    ],
+    borderColor: [
+      'rgb(255, 99, 132)',
+      'rgb(255, 159, 64)',
+      'rgb(255, 205, 86)',
+      'rgb(75, 192, 192)',
+      'rgb(54, 162, 235)',
+      'rgb(153, 102, 255)',
+      'rgb(201, 203, 207)'
+    ],
+    
+      }]
+    },
+    options: {
+      animations: {
+      tension: {
+        duration: 1000,
+        easing: 'easeInOutQuad',
+        from: 1,
+        to: 0,
+        delay:1000
+      }
+    },
+      scales: {
+        y: {
+          beginAtZero: true,
+          suggestedMax:40,
+        }
+      }
+    }
+  });
+</script> 
+</body>
+
+</html>
+
