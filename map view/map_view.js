@@ -35,8 +35,12 @@ function displayMarkers(filter) {
             const marker = L.circleMarker(
                 [device.latitude, device.longitude],
                 {
+                    radius: 10,
+                    fillColor: color,
                     color: color,
-                    radius: 8
+                    weight: 2,
+                    opacity: 1,
+                    fillOpacity: 0.8
                 }
             ).addTo(map);
             
@@ -60,6 +64,17 @@ fetch("http://localhost:8080/api/devices")
         displayMarkers('all');
     })
     .catch(error => console.error("Error:", error));
+
+// TEST: Add a static marker to verify marker rendering
+const testMarker = L.circleMarker([23.5, 77.5], {
+    radius: 12,
+    fillColor: 'blue',
+    color: 'blue',
+    weight: 2,
+    opacity: 1,
+    fillOpacity: 0.8
+}).addTo(map);
+testMarker.bindPopup('Test Marker: If you see this, markers work!');
 
 // Step 7: Button event listeners
 document.getElementById('btnAll').addEventListener('click', function() {
