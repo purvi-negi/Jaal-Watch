@@ -1,0 +1,18 @@
+[
+  {
+    "deviceId": "DWLR001",
+    "latitude": 23.25,
+    "longitude": 77.41,
+    "waterLevel": 15.5,
+    "batteryLevel": 3.1,
+    "status": "ALERT"
+  },
+  {
+    "deviceId": "DWLR002",
+    "latitude": 28.61,
+    "longitude": 77.20,
+    "waterLevel": 10.2,
+    "batteryLevel": 3.8,
+    "status": "NORMAL"
+  }
+]
