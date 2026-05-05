@@ -1,0 +1,113 @@
+* {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        /* Background and Centering */
+        body {
+            background-color: #f0f8ff; 
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        /* Form Container Styling */
+        .form-container {
+            background-color: #ffffff;
+            width: 100%;
+            max-width: 450px;
+            padding: 40px 30px;
+            border-radius: 12px;
+            box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Logo Styling */
+        .logo-container {
+            text-align: center;
+            margin-bottom: 0px;
+        }
+
+        .logo-container img {
+            max-width: 300px;
+            height: auto;
+        }
+
+        /* Form Header */
+        .form-header {
+            text-align: center;
+            color: #111;
+            margin-bottom: 25px;
+            font-size: 22px;
+            font-weight: 500; /* Extra bold for header */
+             border-bottom: 2px solid #00adef;
+             display:inline-block;
+             
+        }
+
+        /* Input Field Groups */
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #222; /* Darker color for better visibility */
+            font-weight: 700; /* Bold Labels */
+            font-size: 15px;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #a0aab5; /* Thicker and slightly darker border */
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 700; /* BOLD text inside input fields */
+            color: #000; /* Pure black text for high contrast */
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        /* Placeholder formatting (keep it normal so actual typed text stands out) */
+        .form-group input::placeholder {
+            font-weight: 400;
+            color: #888;
+        }
+
+        /* Input Focus Effect */
+        .form-group input:focus {
+            outline: none;
+            border-color: #00aeef; /* Logo matching blue */
+            box-shadow: 0 0 8px rgba(0, 174, 239, 0.4);
+        }
+
+        /* Submit Button Styling */
+        .submit-btn {
+            width: 100%;
+            background-color: #00aeef;
+            color: white;
+            padding: 14px;
+            border: none;
+            border-radius: 8px;
+            font-size: 17px;
+            font-weight: 800; /* Bold button text */
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin-top: 10px;
+            letter-spacing: 0.5px;
+        }
+
+        .submit-btn:hover {
+            background-color: #008bc0;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 480px) {
+            .form-container {
+                padding: 30px 20px;
+            }
+        }
