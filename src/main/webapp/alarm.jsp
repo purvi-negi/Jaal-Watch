@@ -13,6 +13,7 @@
             background: #f4f7fb;
             margin: 0;
             padding: 0;
+            
         }
 
         .container {
@@ -86,11 +87,28 @@
             border-radius: 10px;
             text-align: center;
         }
+        #sidebar {
+    width: 250px;
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100vh;
+}
+
+/* PUSH ALL PAGE CONTENT */
+body > *:not(#sidebar) {
+    margin-left: 250px;
+}
+        
     </style>
 </head>
+<%@include file="Navbar.jsp" %>
 <body>
+
 <%ArrayList<Alarm> al  = (ArrayList<Alarm>) request.getAttribute("AlarmList"); %>
-<div class="container">
+
+    <div class="container">
+
 
     <div class="header">
         <h1>🚨 DWLR Alarm Monitoring System</h1>

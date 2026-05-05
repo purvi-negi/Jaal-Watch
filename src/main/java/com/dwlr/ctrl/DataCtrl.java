@@ -27,7 +27,7 @@ public class DataCtrl extends HttpServlet {
 		service.checkLowBattery(dwlrID, battery_level);
 		service.checkOutOfRange(dwlrID, water_level);
 		
-		RequestDispatcher rd = request.getRequestDispatcher("adminDashboard.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("/ShowChartCtl");
 		if(i!=0) {
 			request.setAttribute("msgIn", "Record insertedd..");			
 		}else {

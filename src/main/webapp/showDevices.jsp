@@ -1,5 +1,5 @@
 <%@page import="java.util.ArrayList" %>
-<%@page import="com.dwlr.dto.DWLRData" %>
+<%@page import="com.dwlr.dto.Devices" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -143,40 +143,31 @@
 </head>
 <%@include file="Navbar.jsp" %>
 <body>
-
-<%ArrayList<DWLRData> al = (ArrayList<DWLRData>)request.getAttribute("LIST"); 
-
-%>
-
+<%ArrayList<Devices> devices = (ArrayList<Devices>) request.getAttribute("LIST"); %>
 <div class="table-container">
-    <h2>DWLR Device Data</h2>
+    <h2>DWLR Devices Details</h2>
 
     <table>
         <thead>
             <tr>
-                <th>ID</th>
+                
                 <th>DWLR ID</th>
-                <th>Time Stamp</th>
-                <th>Water Level</th>
-                <th>Battery Level</th>
-                <th>Action</th>
+                
+                <th>Maximum Level</th>
+                <th>Minimum Level</th>
+                
             </tr>
         </thead>
 
         <tbody>
-        <%for(DWLRData data :al){
+        <%for(Devices data :devices){
 	%>
             <tr>
+               
                 <td><%=data.getId() %></td>
-                <td><%=data.getDwlrID() %></td>
-                <td><%=data.getTimestamp()%></td>
-                <td><span class="water-safe"><%=data.getWater_level()%></span></td>
-                <td><span class="<%= 
-            (data.getBattery_level() > 75) ? "battery-high" : 
-            (data.getBattery_level() >= 40) ? "battery-medium" : 
-            "battery-low" 
-        %>"><%=data.getBattery_level()%></span></td>
-                <td><a href="DeleteDataCtl?id=<%=data.getId()%>" class="btn btn-danger" onclick="return confirm('Are you Sure to Delete?')">DELETE</a></td>
+                <td><%=data.getMaxLevel()  %></td>
+             <td><%=data.getMinLevel()%></td>
+                
             </tr>
 <%} %>
             
@@ -185,6 +176,5 @@
         </tbody>
     </table>
 </div>
-
 </body>
 </html>

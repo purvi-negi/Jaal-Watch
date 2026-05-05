@@ -10,6 +10,7 @@ import java.util.ArrayList;
 
 import com.dwlr.dto.Alarm;
 import com.dwlr.dto.DWLRData;
+import com.dwlr.dto.Devices;
 
 public class ModelClass {
 	private static String URL="jdbc:mysql://localhost:3306/";
@@ -208,5 +209,112 @@ public class ModelClass {
 	    return time;
 	}
 	
+	
+	
+	public ArrayList<Double> getWaterLevels() {
+
+	    ArrayList<Double> list = new ArrayList<>();
+
+	    try {
+	        Connection conn = getConnection();
+
+	        String sql = "SELECT waterlevel FROM dwlrdata ORDER BY timestamp";
+
+	        PreparedStatement ps = conn.prepareStatement(sql);
+	        ResultSet rs = ps.executeQuery();
+
+	        while (rs.next()) {
+	            list.add(rs.getDouble("waterlevel"));
+	        }
+
+	    } catch (Exception e) {
+	        e.printStackTrace();
+	    }
+
+	    return list;
+	}
+	
+	
+	
+	public ArrayList<String> getTimestamps() {
+
+	    ArrayList<String> list = new ArrayList<>();
+
+	    try {
+	        Connection conn = getConnection();
+
+	        String sql = "SELECT timestamp FROM dwlrdata ORDER BY timestamp";
+
+	        PreparedStatement ps = conn.prepareStatement(sql);
+	        ResultSet rs = ps.executeQuery();
+
+	        while (rs.next()) {
+	            list.add(rs.getString("timestamp"));
+	        }
+
+	    } catch (Exception e) {
+	        e.printStackTrace();
+	    }
+
+	    return list;
+	}
+
+	public int deletePatient(int id) {
+		int i=0;
+		try {
+			Connection con = getConnection();
+			PreparedStatement ps = con.prepareStatement("delete from dwlrData where id=?");
+			ps.setInt(1, id);
+			i= ps.executeUpdate();
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}
+		return i;
+	}
+
+	public ArrayList<Devices> getAllDevices() {
+		ArrayList<Devices> al = new ArrayList<>();
+		try {
+			Connection con = getConnection();
+			PreparedStatement ps = con.prepareStatement("select * from dwlr_config");
+			ResultSet rs = ps.executeQuery();
+			while(rs.next()) {
+				Devices data = new Devices(rs.getString("dwlr_id"),rs.getDouble("max_level"),rs.getDouble("min_level"));
+				
+				al.add(data);
+			}
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		return al;
+	}
+	
+	
+	
+	
+	public String getEmailByDwlrId(String dwlrId) {
+
+	    String email = null;
+
+	    try {
+	        Connection conn = getConnection();
+
+	        String sql = "SELECT email FROM dwlr_config WHERE dwlr_id=?";
+	        PreparedStatement ps = conn.prepareStatement(sql);
+	        ps.setString(1, dwlrId);
+
+	        ResultSet rs = ps.executeQuery();
+
+	        if (rs.next()) {
+	            email = rs.getString("email");
+	        }
+
+	    } catch (Exception e) {
+	        e.printStackTrace();
+	    }
+
+	    return email;
+	}
 	 				
 }

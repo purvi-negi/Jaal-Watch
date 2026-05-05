@@ -17,6 +17,17 @@ public class AnormalyService {
             Timestamp currentTime = new Timestamp(System.currentTimeMillis());
             Alarm al = new Alarm(dwlrId,"LOW_BATTERY",message,currentTime,"ACTIVE");
             ad.insertAlarm(al);
+            String email = ad.getEmailByDwlrId(dwlrId);
+
+            if (email != null) {
+                EmailService es = new EmailService();
+
+                es.sendMail(
+                    email,
+                    "DWLR Alert - " + dwlrId,
+                    message
+                );
+            }
         }
     }
 	
@@ -35,33 +46,20 @@ public class AnormalyService {
 	        Timestamp time = new Timestamp(System.currentTimeMillis());
 	        Alarm al = new Alarm(dwlrId, "OUT_OF_RANGE", message, time, "ACTIVE");
 	        model.insertAlarm(al);
+	        String email = model.getEmailByDwlrId(dwlrId);
+
+	        if (email != null) {
+	            EmailService es = new EmailService();
+
+	            es.sendMail(
+	                email,
+	                "DWLR Alert - " + dwlrId,
+	                message
+	            );
+	        }
 	    }
 	}
 	
-	
-	public void checkNoData(String dwlrId) {
 
-	    ModelClass model = new ModelClass();
-
-	    Timestamp lastTime = model.getLastTimestamp(dwlrId);
-
-	    if (lastTime == null) return;
-
-	    long currentTime = System.currentTimeMillis();
-	    long last = lastTime.getTime();
-
-	    long diffHours = (currentTime - last) / (1000 * 60 * 60);
-
-	    if (diffHours >= 24) {   
-
-	        String message = "No Data Received for " + diffHours + " hours";
-
-	        Timestamp now = new Timestamp(currentTime);
-
-	        Alarm al = new Alarm(dwlrId, "NO_DATA", message, now, "ACTIVE");
-
-	        model.insertAlarm(al);
-	    }
-	}
 	
 }

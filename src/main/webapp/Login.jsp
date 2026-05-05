@@ -31,13 +31,7 @@
                 <label for="password">ACCESS KEY</label>
                 <input type="password" id="password" name="password" placeholder="XXXXXXXXX" required>
 
-                <div class="checkbox">
-                    <div>
-                        <input type="checkbox" id="session" name="session">
-                        <label for="session" class="sessionlabel">Keep Session Active</label>
-                    </div>
-                    <span class="frgetpaswd"><a href="#">Forgot Password?</a></span>
-                </div>
+                
 
                 <button type="submit">Login</button>
             </form>

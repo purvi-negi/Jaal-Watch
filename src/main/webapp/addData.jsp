@@ -7,8 +7,10 @@
 <title>Insert title here</title>
  <link rel="stylesheet" href="${pageContext.request.contextPath}/ProjectCSS/dataForm.css">
 </head>
+<%@include file="Navbar.jsp" %>
+
 <body>
-<body>
+
     <div class="form-container">
         <div class="logo-container">
         <img src="${pageContext.request.contextPath}/Images/logo.png" alt="Jal Watch Logo">

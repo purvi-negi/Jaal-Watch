@@ -6,6 +6,8 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
+
 import java.io.IOException;
 
 import com.dwlr.model.ModelClass;
@@ -21,7 +23,8 @@ public class LoginCtrl extends HttpServlet {
 		ModelClass ad = new ModelClass();
 		int i= ad.checkAdmin(username, password);
 		if(i!=0) {
-			response.sendRedirect("adminDashboard.jsp");
+			
+			response.sendRedirect("/DWLR_SYSTEM/ShowChartCtl");
 		}else {
 			RequestDispatcher rd = request.getRequestDispatcher("Login.jsp");
 			request.setAttribute("msg", "Invalid username or password....");
